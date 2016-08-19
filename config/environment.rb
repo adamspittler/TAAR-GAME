@@ -32,9 +32,14 @@ configure do
   # See: http://www.sinatrarb.com/faq.html#sessions
   enable :sessions
   set :session_secret, ENV['SESSION_SECRET'] || 'this is a secret shhhhh'
+  set :public_folder, "public"
 
   # Set the views to
-  set :views, File.join(Sinatra::Application.root, "app", "views")
+  # set :views, File.join(Sinatra::Application.root, "app", "views")
+end
+
+get '/' do
+  File.read("public/views/index.html")
 end
 
 # Set up the controllers and helpers
