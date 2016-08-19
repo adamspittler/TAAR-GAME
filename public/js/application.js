@@ -1,13 +1,13 @@
 $(document).ready(function() {
   // Sticky Header
-  $(window).scroll(function() {
+  // $(window).scroll(function() {
 
-      if ($(window).scrollTop() > 30) {
-          $('.main_h').addClass('sticky');
-      } else {
-          $('.main_h').removeClass('sticky');
-      }
-  });
+  //     if ($(window).scrollTop() > 30) {
+  //         $('.main_h').addClass('sticky');
+  //     } else {
+  //         $('.main_h').removeClass('sticky');
+  //     }
+  // });
 
   // Mobile Navigation
   $('.mobile-toggle').click(function() {
