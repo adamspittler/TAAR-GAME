@@ -1,7 +1,38 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+  // Sticky Header
+  $(window).scroll(function() {
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+      if ($(window).scrollTop() > 30) {
+          $('.main_h').addClass('sticky');
+      } else {
+          $('.main_h').removeClass('sticky');
+      }
+  });
+
+  // Mobile Navigation
+  $('.mobile-toggle').click(function() {
+      if ($('.main_h').hasClass('open-nav')) {
+          $('.main_h').removeClass('open-nav');
+      } else {
+          $('.main_h').addClass('open-nav');
+      }
+  });
+
+  $('.main_h li a').click(function() {
+      if ($('.main_h').hasClass('open-nav')) {
+          $('.navigation').removeClass('open-nav');
+          $('.main_h').removeClass('open-nav');
+      }
+  });
+
+  // navigation scroll
+  $('nav a').click(function(event) {
+      var id = $(this).attr("href");
+      var offset = 70;
+      var target = $(id).offset().top - offset;
+      $('html, body').animate({
+          scrollTop: target
+      }, 500);
+      event.preventDefault();
+  });
 });

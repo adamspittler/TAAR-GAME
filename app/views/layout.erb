@@ -8,10 +8,35 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
 
   <title>Adam's Witness Protection Program Game</title>
 </head>
 <body>
+
+  <header class="main_h">
+    <div class="row">
+        <a class="logo" href="/">TAAR Games</a>
+        <div class="mobile-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/lists">Games</a></li>
+                <% if current_user %>
+                <li><a href="/users/<%= current_user.id %>"><%= current_user.username %></a></li>
+                <li><a href="/users/logout">Log Out</a></li>
+                <% else %>
+                <li><a href="/users/new">Register</a></li>
+                <li><a href="/users/login">Log In</a></li>
+                <% end %>
+            </ul>
+        </nav>
+    </div>
+</header>
+
   <%= yield %>
 
 
@@ -22,6 +47,12 @@
 <script src="js/controllers/MainController.js"></script>
 
 <!-- Directives -->
+
+  <footer>
+    <div class="container">
+      <h4>© 2016 METRAAM, Inc. </h4>
+    </div>
+  </footer>
 
 </body>
 </html>
